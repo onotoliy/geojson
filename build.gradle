@@ -19,7 +19,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'com.github.onotoliy.geojson'
-version '1.0'
+version '1.1'
 
 repositories {
     mavenCentral()
@@ -116,8 +116,8 @@ publishing {
 }
 
 bintray {
-    user = 'a-k-pohresniy'
-    key = '61891da6146e09d692266668fcf795d84824afa6'
+    user = property('onotoliy.bintray.user')
+    key = property('onotoliy.bintray.key')
     publications = ['jvm', 'js', 'metadata']
     publish = true
     pkg {
@@ -134,7 +134,7 @@ bintray {
 
         gpg {
             sign = true
-            passphrase = 'Lenovo14'
+            passphrase = property('onotoliy.bintray.passphrase')
         }
     }
 }
