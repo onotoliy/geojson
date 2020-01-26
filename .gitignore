@@ -1,2 +1,6 @@
 /.idea
 /geojson.iml
+/gradle/
+/.gradle/
+/gradlew
+/gradlew.bat
