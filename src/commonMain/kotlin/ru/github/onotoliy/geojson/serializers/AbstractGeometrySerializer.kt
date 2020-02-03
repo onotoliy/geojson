@@ -1,7 +1,5 @@
 package ru.github.onotoliy.geojson.serializers
 
-
-
 import kotlinx.serialization.Encoder
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.json.Json

@@ -78,6 +78,7 @@ kotlin {
             dependencies {
                 implementation kotlin('stdlib-jdk8')
                 implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0'
+                implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
             }
         }
         jvmTest {
@@ -85,6 +86,7 @@ kotlin {
             dependencies {
                 implementation kotlin('stdlib-jdk8')
                 implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0'
+                implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
                 implementation 'junit:junit:4.13'
             }
         }
