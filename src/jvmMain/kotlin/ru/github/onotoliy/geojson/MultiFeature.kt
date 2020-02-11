@@ -8,4 +8,4 @@ import ru.github.onotoliy.geojson.serializer.MultiFeatureJsonSerializer
 @JsonSerialize(using = MultiFeatureJsonSerializer::class)
 @JsonDeserialize(using = MultiFeatureJsonDeserializer::class)
 actual class MultiFeature actual constructor(actual val coordinates: List<Feature>) :
-    GeoJsonCoordinateTyped<Feature>(coordinates)
+    GeoJsonCoordinateCommon<Feature>(coordinates)
