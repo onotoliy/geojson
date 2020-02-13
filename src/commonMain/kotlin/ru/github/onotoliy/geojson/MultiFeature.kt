@@ -7,5 +7,9 @@ package ru.github.onotoliy.geojson
  * @author Anatoliy Pokhresnyi
  */
 expect class MultiFeature(coordinates: List<Feature>) : AbstractGeoJsonCoordinate<Feature> {
+
+    /**
+     * Список геометрий.
+     */
     val coordinates: List<Feature>
 }

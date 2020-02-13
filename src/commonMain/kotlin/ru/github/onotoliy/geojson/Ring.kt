@@ -6,6 +6,10 @@ package ru.github.onotoliy.geojson
  * @property coordinates Координаты.
  * @author Anatoliy Pokhresnyi
  */
-expect class Ring(coordinates: List<MultiPosition>) : AbstractGeometryCoordinate<MultiPosition> {
+expect class Ring(coordinates: List<MultiPosition>) : AbstractGeoJsonCoordinate<MultiPosition>, GeometryCoordinate {
+
+    /**
+     * Координаты.
+     */
     val coordinates: List<MultiPosition>
 }

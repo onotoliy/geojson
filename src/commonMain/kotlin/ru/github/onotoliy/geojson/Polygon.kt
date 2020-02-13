@@ -7,5 +7,9 @@ package ru.github.onotoliy.geojson
  * @author Anatoliy Pokhresnyi
  */
 expect class Polygon(coordinates: Ring) : Geometry {
+
+    /**
+     * Координаты.
+     */
     override val coordinates: Ring
 }

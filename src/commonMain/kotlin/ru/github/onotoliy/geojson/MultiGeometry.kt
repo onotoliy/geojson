@@ -6,6 +6,10 @@ package ru.github.onotoliy.geojson
  * @property coordinates Список геометрий.
  * @author Anatoliy Pokhresnyi
  */
-expect class MultiGeometry(coordinates: List<Geometry>) : AbstractMultiGeometry, GeometryCoordinate {
+expect class MultiGeometry(coordinates: List<Geometry>) : AbstractGeoJsonCoordinate<Geometry>, GeometryCoordinate {
+
+    /**
+     * Список геометрий.
+     */
     val coordinates: List<Geometry>
 }

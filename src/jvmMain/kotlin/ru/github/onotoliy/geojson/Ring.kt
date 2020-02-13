@@ -8,4 +8,4 @@ import ru.github.onotoliy.geojson.serializer.RingJsonSerializer
 @JsonSerialize(using = RingJsonSerializer::class)
 @JsonDeserialize(using = RingJsonDeserializer::class)
 actual class Ring actual constructor(actual val coordinates: List<MultiPosition>) :
-    AbstractGeometryCoordinate<MultiPosition>(coordinates)
+    AbstractGeoJsonCoordinate<MultiPosition>(coordinates), GeometryCoordinate

@@ -7,5 +7,9 @@ package ru.github.onotoliy.geojson
  * @author Anatoliy Pokhresnyi
  */
 expect class Point(coordinates: Position) : Geometry {
+
+    /**
+     * Координаты.
+     */
     override val coordinates: Position
 }

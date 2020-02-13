@@ -6,7 +6,7 @@ package ru.github.onotoliy.geojson
  * @property coordinates Координаты.
  * @author Anatoliy Pokhresnyi
  */
-expect class MultiPosition(coordinates: List<Position>) : AbstractGeometryCoordinate<Position> {
+expect class MultiPosition(coordinates: List<Position>) : AbstractGeoJsonCoordinate<Position>, GeometryCoordinate {
 
     /**
      * Координаты.

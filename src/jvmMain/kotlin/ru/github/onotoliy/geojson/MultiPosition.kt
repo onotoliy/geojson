@@ -8,4 +8,4 @@ import ru.github.onotoliy.geojson.serializer.MultiPositionJsonSerializer
 @JsonSerialize(using = MultiPositionJsonSerializer::class)
 @JsonDeserialize(using = MultiPositionJsonDeserializer::class)
 actual class MultiPosition actual constructor(actual val coordinates: List<Position>) :
-    AbstractGeometryCoordinate<Position>(coordinates)
+    AbstractGeoJsonCoordinate<Position>(coordinates), GeometryCoordinate
