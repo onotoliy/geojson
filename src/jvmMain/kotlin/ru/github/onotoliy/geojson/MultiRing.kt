@@ -8,4 +8,4 @@ import ru.github.onotoliy.geojson.serializer.MultiRingJsonSerializer
 @JsonSerialize(using = MultiRingJsonSerializer::class)
 @JsonDeserialize(using = MultiRingJsonDeserializer::class)
 actual class MultiRing actual constructor(actual val coordinates: List<Ring>) :
-    GeometryCoordinateCommon<Ring>(coordinates)
+    AbstractGeometryCoordinate<Ring>(coordinates)

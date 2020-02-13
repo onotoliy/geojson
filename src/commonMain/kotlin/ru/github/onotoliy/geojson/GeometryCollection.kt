@@ -1,15 +1,15 @@
 package ru.github.onotoliy.geojson
 
 /**
- * GeometryCollection Object.
+ * Объект GeometryCollection.
  *
- * @property geometries Geometries.
+ * @property geometries Список геометрий.
  * @author Anatoliy Pokhresnyi
  */
 expect class GeometryCollection(geometries: MultiGeometry) : GeoJsonObject<MultiGeometry> {
 
     /**
-     * Geometries.
+     * Список геометрий.
      */
     val geometries: MultiGeometry
 }

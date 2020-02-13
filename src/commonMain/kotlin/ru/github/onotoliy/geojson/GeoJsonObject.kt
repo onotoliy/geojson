@@ -1,15 +1,15 @@
 package ru.github.onotoliy.geojson
 
 /**
- * GeoJson Object.
+ * Объект в формате GeoJson.
  *
- * @param T Type of coordinates.
- * @property value Coordinates.
+ * @param T Тип координат.
+ * @property value Координаты.
  * @author Anatoliy Pokhresnyi
  */
-open class GeoJsonObject<T : Any>(protected val value: T) {
+abstract class GeoJsonObject<T : Any>(protected val value: T) {
     /**
-     * Type of GeoJson Object.
+     * Тип объекта GeoJson.
      */
     val type: String
         get() = this::class.getType()

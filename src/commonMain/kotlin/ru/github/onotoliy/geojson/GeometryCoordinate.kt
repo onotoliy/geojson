@@ -1,7 +1,7 @@
 package ru.github.onotoliy.geojson
 
 /**
- * Geometry coordinate.
+ * Координаты геометрии.
  *
  * @author Anatoliy Pokhresnyi
  */

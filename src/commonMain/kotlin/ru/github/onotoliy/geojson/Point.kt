@@ -1,9 +1,11 @@
 package ru.github.onotoliy.geojson
 
-//expect class Point(coordinates: Position) : Geometry {
-//    override val coordinates: Position
-//}
-
-@PJsonSerialize
-@PJsonDeserialize
-class Point(coordinates: Position) : Geometry(coordinates)
+/**
+ * Объект Point.
+ *
+ * @property coordinates Координаты.
+ * @author Anatoliy Pokhresnyi
+ */
+expect class Point(coordinates: Position) : Geometry {
+    override val coordinates: Position
+}

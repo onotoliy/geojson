@@ -7,5 +7,5 @@ import ru.github.onotoliy.geojson.serializer.MultiGeometryJsonSerializer
 
 @JsonSerialize(using = MultiGeometryJsonSerializer::class)
 @JsonDeserialize(using = MultiGeometryJsonDeserializer::class)
-actual class MultiGeometry actual constructor(actual val coordinates: List<Geometry>) : MultiGeometryTyped(coordinates),
+actual class MultiGeometry actual constructor(actual val coordinates: List<Geometry>) : AbstractMultiGeometry(coordinates),
     GeometryCoordinate

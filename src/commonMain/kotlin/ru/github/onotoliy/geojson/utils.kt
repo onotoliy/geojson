@@ -9,6 +9,3 @@ fun KClass<*>.getType(): String {
 
     return name.substring(name.lastIndexOf(".") + 1, name.length)
 }
-
-expect annotation class PJsonSerialize
-expect annotation class PJsonDeserialize()

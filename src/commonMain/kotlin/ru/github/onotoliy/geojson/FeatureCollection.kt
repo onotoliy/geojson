@@ -1,15 +1,15 @@
 package ru.github.onotoliy.geojson
 
 /**
- * FeatureCollection Object.
+ * Объект FeatureCollection.
  *
- * @property features Features.
+ * @property features Список объектов Features.
  * @author Anatoliy Pokhresnyi
  */
 expect class FeatureCollection(features: MultiFeature) : GeoJsonObject<MultiFeature> {
 
     /**
-     * Features.
+     * Список объектов Features.
      */
     val features: MultiFeature
 }

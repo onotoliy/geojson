@@ -1,15 +1,15 @@
 package ru.github.onotoliy.geojson
 
 /**
- * Feature Object.
+ * Объект Feature.
  *
- * @property geometry Geometry.
+ * @property geometry Геометрия.
  * @author Anatoliy Pokhresnyi
  */
 expect class Feature constructor(geometry: Geometry) : GeoJsonObject<Geometry> {
 
     /**
-     * Geometry.
+     * Геометрия.
      */
     val geometry: Geometry
 }

@@ -1,9 +1,9 @@
 package ru.github.onotoliy.geojson
 
 /**
- * Geometry.
+ * Геометрия.
  *
- * @property coordinates Coordinates.
+ * @property coordinates Координаты.
  * @author Anatoliy Pokhresnyi
  */
 open class Geometry(open val coordinates: GeometryCoordinate) : GeoJsonObject<GeometryCoordinate>(coordinates)
