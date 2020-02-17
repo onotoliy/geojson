@@ -8,6 +8,11 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonElementSerializer
 import ru.github.onotoliy.geojson.*
 
+/**
+ * Kotlin сериализация/десериализация [Geometry].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 object GeometrySerializer : KSerializer<Geometry> {
     override val descriptor: SerialDescriptor
         get() = object : SerialClassDescImpl("GeometrySerializer") {

@@ -5,6 +5,11 @@ import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.Feature
 import ru.github.onotoliy.geojson.Geometry
 
+/**
+ * Kotlin сериализация/десериализация [Feature].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 object FeatureSerializer : GeoJsonObjectSerializer<Feature, Geometry>(
     "Feature", "geometry", Feature::geometry, GeometrySerializer
 ) {

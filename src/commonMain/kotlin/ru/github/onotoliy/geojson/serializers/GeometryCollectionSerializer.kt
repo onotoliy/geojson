@@ -4,8 +4,14 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.GeometryCollection
+import ru.github.onotoliy.geojson.LineString
 import ru.github.onotoliy.geojson.MultiGeometry
 
+/**
+ * Kotlin сериализация/десериализация [GeometryCollection].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 object GeometryCollectionSerializer : GeoJsonObjectSerializer<GeometryCollection, MultiGeometry>(
     "GeometryCollection", "geometries", GeometryCollection::geometries, MultiGeometrySerializer
 ) {
