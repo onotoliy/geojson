@@ -10,5 +10,5 @@ import ru.github.onotoliy.geojson.MultiLineString
  * @author Anatoliy Pokhresnyi
  */
 object MultiGeometrySerializer : GeoJsonCoordinateSerializer<MultiGeometry, Geometry>(
-    "GeometryCollection", MultiGeometry::coordinates, GeometrySerializer, ::MultiGeometry
+    MultiGeometry::coordinates, GeometrySerializer, ::MultiGeometry
 )

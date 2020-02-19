@@ -1,13 +1,13 @@
 package ru.github.onotoliy.geojson.serializers
 
+import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.Polygon
-import ru.github.onotoliy.geojson.Position
-import ru.github.onotoliy.geojson.Ring
 
 /**
  * Kotlin сериализация/десериализация [Polygon].
  *
  * @author Anatoliy Pokhresnyi
  */
-object PolygonSerializer :
-    AbstractGeometrySerializer<Polygon, Ring>("Polygon", ::Polygon, RingSerializer)
+object PolygonSerializer : GeoJsonObjectSerializer<Polygon>(
+    "coordinates", JsonElement::toPolygon, Polygon::stringify
+)

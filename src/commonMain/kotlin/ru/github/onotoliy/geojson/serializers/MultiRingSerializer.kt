@@ -10,5 +10,5 @@ import ru.github.onotoliy.geojson.Ring
  * @author Anatoliy Pokhresnyi
  */
 object MultiRingSerializer : GeoJsonCoordinateSerializer<MultiRing, Ring>(
-    "MultiRing", MultiRing::coordinates, RingSerializer, ::MultiRing
+    MultiRing::coordinates, RingSerializer, ::MultiRing
 )

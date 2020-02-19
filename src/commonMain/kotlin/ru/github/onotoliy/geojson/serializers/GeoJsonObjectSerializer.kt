@@ -2,30 +2,26 @@ package ru.github.onotoliy.geojson.serializers
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.SerialClassDescImpl
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonElementSerializer
 import ru.github.onotoliy.geojson.GeoJsonObject
+import ru.github.onotoliy.geojson.getType
 
-abstract class GeoJsonObjectSerializer<G : GeoJsonObject<C>, C : Any>(
-    internal val type: String,
+abstract class GeoJsonObjectSerializer<G: GeoJsonObject<*>>(
     private val coordinates: String,
-    internal val toObject: (G) -> C,
-    private val serializer: KSerializer<C>? = null
+    private val decodeCoordinateElement: (JsonElement) -> G,
+    private val encodeCoordinateElement: (G, CompositeEncoder, SerialDescriptor, Int) -> Unit
 ) : KSerializer<G> {
 
-    private val json = Json(JsonConfiguration.Stable)
+    private val type: String = this::class.getType().removeSuffix("Serializer")
 
     override val descriptor: SerialDescriptor
-        get() = object : SerialClassDescImpl("${type}Serializer") {
+        get() = object : SerialClassDescImpl(this::class.getType()) {
             init {
                 addElement("type")
                 addElement(coordinates)
             }
         }
-
-    abstract fun deserialize(json: Json, element: JsonElement): G
 
     override fun deserialize(decoder: Decoder): G {
         val structure: CompositeDecoder = decoder.beginStructure(descriptor)
@@ -44,7 +40,7 @@ abstract class GeoJsonObjectSerializer<G : GeoJsonObject<C>, C : Any>(
                     }
                 }
                 coordinates -> geometry =
-                    deserialize(json, structure.decodeSerializableElement(descriptor, idx, JsonElementSerializer))
+                    decodeCoordinateElement(structure.decodeSerializableElement(descriptor, idx, JsonElementSerializer))
             }
         }
 
@@ -58,14 +54,10 @@ abstract class GeoJsonObjectSerializer<G : GeoJsonObject<C>, C : Any>(
     }
 
     override fun serialize(encoder: Encoder, obj: G) {
-        if (serializer == null) {
-            throw IllegalArgumentException()
-        }
-
         val structure = encoder.beginStructure(descriptor)
 
         structure.encodeStringElement(descriptor, 0, obj.type)
-        structure.encodeSerializableElement(descriptor, 1, serializer, toObject(obj))
+        encodeCoordinateElement(obj, structure, descriptor, 1)
 
         structure.endStructure(descriptor)
     }

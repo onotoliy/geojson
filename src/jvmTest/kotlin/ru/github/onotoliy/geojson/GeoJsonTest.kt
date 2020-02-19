@@ -17,9 +17,9 @@ class GeoJsonTest {
         .parseJson(String(FileInputStream("C:\\Workspace\\geojson\\src\\jvmTest\\resources\\$name.json").readAllBytes()))
         .toString()
 
-//    @Test
+    @Test
     fun test() {
-        println("123113123123")
+        println("2314144")
 
         val mapper = ObjectMapper()
 
@@ -107,7 +107,7 @@ class GeoJsonTest {
         assertEquals(getOriginalJson("Point"), mapper.writeValueAsString(geometry))
     }
 
-//    @Test
+    @Test
     fun testPoint() {
         val geometry = Point(Position(100.0, 0.0))
         val json = getOriginalJson("Point")
@@ -116,7 +116,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toPoint())
     }
 
-//    @Test
+    @Test
     fun testMultiPoint() {
         val geometry = MultiPoint(MultiPosition(listOf(Position(100.0, 0.0), Position(101.0, 1.0))))
         val json = getOriginalJson("MultiPoint")
@@ -125,7 +125,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toMultiPoint())
     }
 
-//    @Test
+    @Test
     fun testLineString() {
         val geometry = LineString(MultiPosition(listOf(Position(100.0, 0.0), Position(101.0, 1.0))))
         val json = getOriginalJson("LineString")
@@ -134,7 +134,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toLineString())
     }
 
-//    @Test
+    @Test
     fun testMultiLineString() {
         val geometry = MultiLineString(
             Ring(
@@ -150,7 +150,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toMultiLineString())
     }
 
-//    @Test
+    @Test
     fun testPolygonNoHoles() {
         val geometry = Polygon(
             Ring(
@@ -173,7 +173,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toPolygon())
     }
 
-//    @Test
+    @Test
     fun testPolygonWithHoles() {
         val geometry = Polygon(
             Ring(
@@ -205,7 +205,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toPolygon())
     }
 
-//    @Test
+    @Test
     fun testMultiPolygon() {
         val geometry = MultiPolygon(
             MultiRing(
@@ -254,7 +254,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toMultiPolygon())
     }
 
-//    @Test
+    @Test
     fun testGeometryCollection() {
         val geometry = GeometryCollection(
             MultiGeometry(
@@ -270,7 +270,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toGeometryCollection())
     }
 
-//    @Test
+    @Test
     fun testFeature() {
         val geometry = Feature(
             Polygon(
@@ -295,7 +295,7 @@ class GeoJsonTest {
         assertEquals(geometry, json.toFeature())
     }
 
-//    @Test
+    @Test
     fun testFeatureCollection() {
         val geometry = FeatureCollection(
             MultiFeature(

@@ -9,5 +9,5 @@ import ru.github.onotoliy.geojson.MultiFeature
  * @author Anatoliy Pokhresnyi
  */
 object MultiFeatureSerializer : GeoJsonCoordinateSerializer<MultiFeature, Feature>(
-    "GeometryCollection", MultiFeature::coordinates, FeatureSerializer, ::MultiFeature
+    MultiFeature::coordinates, FeatureSerializer, ::MultiFeature
 )

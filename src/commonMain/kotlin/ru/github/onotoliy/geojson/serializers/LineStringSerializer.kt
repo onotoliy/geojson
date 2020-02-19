@@ -1,5 +1,6 @@
 package ru.github.onotoliy.geojson.serializers
 
+import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.LineString
 import ru.github.onotoliy.geojson.MultiPosition
 
@@ -8,7 +9,6 @@ import ru.github.onotoliy.geojson.MultiPosition
  *
  * @author Anatoliy Pokhresnyi
  */
-object LineStringSerializer :
-    AbstractGeometrySerializer<LineString, MultiPosition>("LineString",
-        ::LineString, MultiPositionSerializer
-    )
+object LineStringSerializer : GeoJsonObjectSerializer<LineString>(
+    "coordinates", JsonElement::toLineString, LineString::stringify
+)

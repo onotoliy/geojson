@@ -1,5 +1,6 @@
 package ru.github.onotoliy.geojson.serializers
 
+import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.MultiPoint
 import ru.github.onotoliy.geojson.MultiPolygon
 import ru.github.onotoliy.geojson.MultiPosition
@@ -9,7 +10,6 @@ import ru.github.onotoliy.geojson.MultiPosition
  *
  * @author Anatoliy Pokhresnyi
  */
-object MultiPointSerializer :
-    AbstractGeometrySerializer<MultiPoint, MultiPosition>("MultiPoint",
-        ::MultiPoint, MultiPositionSerializer
-    )
+object MultiPointSerializer : GeoJsonObjectSerializer<MultiPoint>(
+    "coordinates", JsonElement::toMultiPoint, MultiPoint::stringify
+)

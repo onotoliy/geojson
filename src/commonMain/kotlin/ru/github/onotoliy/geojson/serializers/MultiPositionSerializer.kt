@@ -10,5 +10,5 @@ import ru.github.onotoliy.geojson.Position
  * @author Anatoliy Pokhresnyi
  */
 object MultiPositionSerializer : GeoJsonCoordinateSerializer<MultiPosition, Position>(
-    "MultiPosition", MultiPosition::coordinates, PositionSerializer, ::MultiPosition
+    MultiPosition::coordinates, PositionSerializer, ::MultiPosition
 )

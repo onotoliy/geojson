@@ -10,4 +10,5 @@ import ru.github.onotoliy.geojson.Ring
  * @author Anatoliy Pokhresnyi
  */
 object PositionSerializer : GeoJsonCoordinateSerializer<Position, Double>(
-    "Position", { listOf(it.x, it.y) }, Double.Companion.serializer(), { Position(it[0], it[1]) })
+    { listOf(it.x, it.y) }, Double.Companion.serializer(), { Position(it[0], it[1]) }
+)
