@@ -4,6 +4,7 @@ import kotlinx.serialization.CompositeEncoder
 import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.Feature
+import ru.github.onotoliy.geojson.FeatureCollection
 
 /**
  * Kotlin сериализация/десериализация [Feature].
@@ -15,16 +16,16 @@ object FeatureSerializer : GeoJsonObjectSerializer<Feature>(
 )
 
 /**
- * Десериялизация геометрии объекта [Feature].
+ * Десериализация объекта [Feature].
  *
- * @param element Геометрия объекта [Feature].
+ * @param element Содержимое объекта [Feature].
  * @return Объект [Feature].
  * @author Anatoliy Pokhresnyi
  */
 private fun decode(element: JsonElement) = Feature(decode(element, GeometrySerializer))
 
 /**
- * Сериялизация геометрии объекта [Feature].
+ * Сериялизация объекта [Feature].
  *
  * @param obj Объект [Feature].
  * @param structure JSON объект.

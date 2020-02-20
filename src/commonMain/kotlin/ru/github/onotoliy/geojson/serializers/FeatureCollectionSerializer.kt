@@ -15,16 +15,16 @@ object FeatureCollectionSerializer : GeoJsonObjectSerializer<FeatureCollection>(
 )
 
 /**
- * Десериялизация координат объекта [FeatureCollection].
+ * Десериализация объекта [FeatureCollection].
  *
- * @param element Координаты объекта [FeatureCollection].
+ * @param element Содержимое объекта [FeatureCollection].
  * @return Объект [FeatureCollection].
  * @author Anatoliy Pokhresnyi
  */
 private fun decode(element: JsonElement) = FeatureCollection(decode(element, MultiFeatureSerializer))
 
 /**
- * Сериялизация координат объекта [FeatureCollection].
+ * Сериялизация объекта [FeatureCollection].
  *
  * @param obj Объект [FeatureCollection].
  * @param structure JSON объект.

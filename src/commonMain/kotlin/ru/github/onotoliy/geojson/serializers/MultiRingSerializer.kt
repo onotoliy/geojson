@@ -1,6 +1,7 @@
 package ru.github.onotoliy.geojson.serializers
 
 import kotlinx.serialization.*
+import ru.github.onotoliy.geojson.MultiPosition
 import ru.github.onotoliy.geojson.MultiRing
 
 /**
@@ -12,5 +13,20 @@ object MultiRingSerializer : GeoJsonCoordinateSerializer<MultiRing>(
     ::decode, ::encode
 )
 
+/**
+ * Десериализация объекта [MultiRing].
+ *
+ * @param decoder Содержимое объекта [MultiRing].
+ * @return Объект [MultiRing].
+ * @author Anatoliy Pokhresnyi
+ */
 private fun decode(decoder: Decoder) = decoder.decode(RingSerializer.list).let(::MultiRing)
+
+/**
+ * Сериялизация объекта [MultiRing].
+ *
+ * @param obj Объект [MultiRing].
+ * @param encoder JSON объект.
+ * @author Anatoliy Pokhresnyi
+ */
 private fun encode(obj: MultiRing, encoder: Encoder) = encoder.encode(RingSerializer.list, obj.coordinates)
