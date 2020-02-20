@@ -4,7 +4,6 @@ import kotlinx.serialization.CompositeEncoder
 import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.Feature
-import ru.github.onotoliy.geojson.FeatureCollection
 
 /**
  * Kotlin сериализация/десериализация [Feature].

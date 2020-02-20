@@ -7,12 +7,23 @@ import kotlinx.serialization.json.JsonElementSerializer
 import ru.github.onotoliy.geojson.GeoJsonObject
 import ru.github.onotoliy.geojson.getType
 
+/**
+ * Kotlin сериализация/десериализация GeoJson объекта.
+ *
+ * @param coordinates Название блока с координатами.
+ * @param decodeCoordinateElement Десериализация координат GeoJson объекта.
+ * @param encodeCoordinateElement Сереализция коодинат GeoJson объекта
+ * @author Anatoliy Pokhresnyi
+ */
 abstract class GeoJsonObjectSerializer<G: GeoJsonObject<*>>(
     private val coordinates: String,
     private val decodeCoordinateElement: (JsonElement) -> G,
     private val encodeCoordinateElement: (G, CompositeEncoder, SerialDescriptor, Int) -> Unit
 ) : KSerializer<G> {
 
+    /**
+     * Тип GeoJson объекта.
+     */
     private val type: String = this::class.getType().removeSuffix("Serializer")
 
     override val descriptor: SerialDescriptor

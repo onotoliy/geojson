@@ -5,6 +5,13 @@ import kotlinx.serialization.internal.StringDescriptor
 import ru.github.onotoliy.geojson.GeoJsonCoordinate
 import ru.github.onotoliy.geojson.getType
 
+/**
+ * Kotlin сериализация/десериализация координат GeoJson объекта.
+ *
+ * @param decode Десериализация координат GeoJson объекта.
+ * @param encode Сереализция коодинат GeoJson объекта
+ * @author Anatoliy Pokhresnyi
+ */
 abstract class GeoJsonCoordinateSerializer<G : GeoJsonCoordinate>(
     private val decode: (Decoder) -> G,
     private val encode: (G, Encoder) -> Unit
