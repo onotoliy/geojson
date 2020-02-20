@@ -16,7 +16,7 @@ abstract class GeoJsonObjectSerializer<G: GeoJsonObject<*>>(
     private val type: String = this::class.getType().removeSuffix("Serializer")
 
     override val descriptor: SerialDescriptor
-        get() = object : SerialClassDescImpl(this::class.getType()) {
+        get() = object : SerialClassDescImpl("${type}Serializer") {
             init {
                 addElement("type")
                 addElement(coordinates)

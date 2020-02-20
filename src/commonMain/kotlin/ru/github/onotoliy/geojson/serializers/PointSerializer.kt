@@ -1,5 +1,7 @@
 package ru.github.onotoliy.geojson.serializers
 
+import kotlinx.serialization.CompositeEncoder
+import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
 import ru.github.onotoliy.geojson.Point
 
@@ -9,5 +11,9 @@ import ru.github.onotoliy.geojson.Point
  * @author Anatoliy Pokhresnyi
  */
 object PointSerializer : GeoJsonObjectSerializer<Point>(
-    "coordinates", JsonElement::toPoint, Point::stringify
+    "coordinates", ::decode, ::encode
 )
+
+private fun decode(element: JsonElement) = Point(decode(element, PositionSerializer))
+private fun encode(obj: Point, structure: CompositeEncoder, descriptor: SerialDescriptor, idx: Int) =
+    encode(structure, descriptor, idx, PositionSerializer, obj.coordinates)
