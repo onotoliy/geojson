@@ -3,8 +3,6 @@ package ru.github.onotoliy.geojson.serializers
 import kotlinx.serialization.CompositeEncoder
 import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
-import ru.github.onotoliy.geojson.MultiLineString
-import ru.github.onotoliy.geojson.MultiRing
 import ru.github.onotoliy.geojson.Point
 
 /**

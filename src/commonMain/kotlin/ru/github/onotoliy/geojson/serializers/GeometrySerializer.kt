@@ -1,12 +1,23 @@
 package ru.github.onotoliy.geojson.serializers
 
-import kotlinx.serialization.*
+import kotlinx.serialization.CompositeDecoder
+import kotlinx.serialization.Decoder
+import kotlinx.serialization.Encoder
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerialDescriptor
+import kotlinx.serialization.encode
 import kotlinx.serialization.internal.SerialClassDescImpl
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonElementSerializer
-import ru.github.onotoliy.geojson.*
+import ru.github.onotoliy.geojson.Geometry
+import ru.github.onotoliy.geojson.LineString
+import ru.github.onotoliy.geojson.MultiLineString
+import ru.github.onotoliy.geojson.MultiPoint
+import ru.github.onotoliy.geojson.MultiPolygon
+import ru.github.onotoliy.geojson.Point
+import ru.github.onotoliy.geojson.Polygon
 
 /**
  * Kotlin сериализация/десериализация [Geometry].

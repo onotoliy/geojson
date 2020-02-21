@@ -3,7 +3,7 @@ package ru.github.onotoliy.geojson.serializers
 import kotlinx.serialization.CompositeEncoder
 import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
-import ru.github.onotoliy.geojson.*
+import ru.github.onotoliy.geojson.MultiLineString
 
 /**
  * Kotlin сериализация/десериализация [MultiLineString].

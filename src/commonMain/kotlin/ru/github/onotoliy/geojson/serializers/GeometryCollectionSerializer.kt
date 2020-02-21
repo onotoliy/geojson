@@ -3,10 +3,7 @@ package ru.github.onotoliy.geojson.serializers
 import kotlinx.serialization.CompositeEncoder
 import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.JsonElement
-import ru.github.onotoliy.geojson.Feature
-import ru.github.onotoliy.geojson.FeatureCollection
 import ru.github.onotoliy.geojson.GeometryCollection
-import ru.github.onotoliy.geojson.MultiGeometry
 
 /**
  * Kotlin сериализация/десериализация [GeometryCollection].

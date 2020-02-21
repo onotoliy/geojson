@@ -1,9 +1,18 @@
 package ru.github.onotoliy.geojson.serializer
 
 import com.fasterxml.jackson.databind.module.SimpleModule
-import ru.github.onotoliy.geojson.*
+import ru.github.onotoliy.geojson.Feature
+import ru.github.onotoliy.geojson.FeatureCollection
+import ru.github.onotoliy.geojson.Geometry
+import ru.github.onotoliy.geojson.GeometryCollection
+import ru.github.onotoliy.geojson.LineString
+import ru.github.onotoliy.geojson.MultiLineString
+import ru.github.onotoliy.geojson.MultiPoint
+import ru.github.onotoliy.geojson.MultiPolygon
+import ru.github.onotoliy.geojson.Point
+import ru.github.onotoliy.geojson.Polygon
 
-class GeoJsonModule: SimpleModule {
+class GeoJsonModule : SimpleModule {
 
     constructor() {
         addSerializer(Point::class.java, PointJacksonSerializer())

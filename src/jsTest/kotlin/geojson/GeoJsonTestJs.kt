@@ -1,7 +1,27 @@
-package ru.github.onotoliy.geojson
+package geojson
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import ru.github.onotoliy.geojson.FEATURE_COLLECTION_JSON
+import ru.github.onotoliy.geojson.FEATURE_COLLECTION_OBJECT
+import ru.github.onotoliy.geojson.FEATURE_JSON
+import ru.github.onotoliy.geojson.FEATURE_OBJECT
+import ru.github.onotoliy.geojson.GEOMETRY_COLLECTION_JSON
+import ru.github.onotoliy.geojson.GEOMETRY_COLLECTION_OBJECT
+import ru.github.onotoliy.geojson.LINE_STRING_JSON
+import ru.github.onotoliy.geojson.LINE_STRING_OBJECT
+import ru.github.onotoliy.geojson.MULTI_LINE_STRING_JSON
+import ru.github.onotoliy.geojson.MULTI_LINE_STRING_OBJECT
+import ru.github.onotoliy.geojson.MULTI_POINT_JSON
+import ru.github.onotoliy.geojson.MULTI_POINT_OBJECT
+import ru.github.onotoliy.geojson.MULTI_POLYGON_JSON
+import ru.github.onotoliy.geojson.MULTI_POLYGON_OBJECT
+import ru.github.onotoliy.geojson.POINT_JSON
+import ru.github.onotoliy.geojson.POINT_OBJECT
+import ru.github.onotoliy.geojson.POLYGON_NO_HOLES_JSON
+import ru.github.onotoliy.geojson.POLYGON_NO_HOLES_OBJECT
+import ru.github.onotoliy.geojson.POLYGON_WITH_HOLES_JSON
+import ru.github.onotoliy.geojson.POLYGON_WITH_HOLES_OBJECT
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toFeature
 import ru.github.onotoliy.geojson.serializers.toFeatureCollection
@@ -13,7 +33,7 @@ import ru.github.onotoliy.geojson.serializers.toMultiPolygon
 import ru.github.onotoliy.geojson.serializers.toPoint
 import ru.github.onotoliy.geojson.serializers.toPolygon
 
-class GeoJsonTest {
+class GeoJsonTestJs {
 
     @Test
     fun testPoint() {

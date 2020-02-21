@@ -6,7 +6,22 @@ import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotlinx.serialization.json.JsonElement
-import ru.github.onotoliy.geojson.*
+import ru.github.onotoliy.geojson.Feature
+import ru.github.onotoliy.geojson.FeatureCollection
+import ru.github.onotoliy.geojson.Geometry
+import ru.github.onotoliy.geojson.GeometryCollection
+import ru.github.onotoliy.geojson.LineString
+import ru.github.onotoliy.geojson.MultiFeature
+import ru.github.onotoliy.geojson.MultiGeometry
+import ru.github.onotoliy.geojson.MultiLineString
+import ru.github.onotoliy.geojson.MultiPoint
+import ru.github.onotoliy.geojson.MultiPolygon
+import ru.github.onotoliy.geojson.MultiPosition
+import ru.github.onotoliy.geojson.MultiRing
+import ru.github.onotoliy.geojson.Point
+import ru.github.onotoliy.geojson.Polygon
+import ru.github.onotoliy.geojson.Position
+import ru.github.onotoliy.geojson.Ring
 
 private val json = Json(JsonConfiguration.Stable)
 

@@ -1,6 +1,11 @@
 package ru.github.onotoliy.geojson.serializers
 
-import kotlinx.serialization.*
+import kotlinx.serialization.CompositeDecoder
+import kotlinx.serialization.CompositeEncoder
+import kotlinx.serialization.Decoder
+import kotlinx.serialization.Encoder
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.internal.SerialClassDescImpl
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonElementSerializer
@@ -15,7 +20,7 @@ import ru.github.onotoliy.geojson.getType
  * @param encodeCoordinateElement Сереализция коодинат GeoJson объекта
  * @author Anatoliy Pokhresnyi
  */
-abstract class GeoJsonObjectSerializer<G: GeoJsonObject<*>>(
+abstract class GeoJsonObjectSerializer<G : GeoJsonObject<*>>(
     private val coordinates: String,
     private val decodeCoordinateElement: (JsonElement) -> G,
     private val encodeCoordinateElement: (G, CompositeEncoder, SerialDescriptor, Int) -> Unit

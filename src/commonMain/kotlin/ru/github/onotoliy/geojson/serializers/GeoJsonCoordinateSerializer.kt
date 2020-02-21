@@ -1,7 +1,11 @@
 package ru.github.onotoliy.geojson.serializers
 
-import kotlinx.serialization.*
+import kotlinx.serialization.Decoder
+import kotlinx.serialization.Encoder
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerialDescriptor
 import kotlinx.serialization.internal.StringDescriptor
+import kotlinx.serialization.withName
 import ru.github.onotoliy.geojson.GeoJsonCoordinate
 import ru.github.onotoliy.geojson.getType
 

@@ -20,7 +20,7 @@ class PointJacksonSerializer : JsonSerializer<Point>() {
 }
 
 @JsonDeserialize(`as` = Point::class, using = PointJacksonDeserializer::class)
-class PointJacksonDeserializer: JsonDeserializer<Point>() {
+class PointJacksonDeserializer : JsonDeserializer<Point>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Point =
         p.fromJson(String::toPoint)
 }

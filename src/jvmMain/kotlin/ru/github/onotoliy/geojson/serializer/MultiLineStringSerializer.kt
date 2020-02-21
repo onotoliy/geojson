@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
 import ru.github.onotoliy.geojson.MultiLineString
-import ru.github.onotoliy.geojson.MultiPoint
 import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiLineString

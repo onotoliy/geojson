@@ -2,8 +2,8 @@ package ru.github.onotoliy.geojson
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import ru.github.onotoliy.geojson.serializer.LineStringJsonDeserializer
 import ru.github.onotoliy.geojson.serializer.LineStringJacksonSerializer
+import ru.github.onotoliy.geojson.serializer.LineStringJsonDeserializer
 
 @JsonSerialize(using = LineStringJacksonSerializer::class)
 @JsonDeserialize(using = LineStringJsonDeserializer::class)

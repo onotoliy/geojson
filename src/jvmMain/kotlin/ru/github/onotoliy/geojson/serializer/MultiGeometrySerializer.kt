@@ -6,7 +6,8 @@ import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
-import ru.github.onotoliy.geojson.*
+import ru.github.onotoliy.geojson.MultiGeometry
+import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiGeometry
 

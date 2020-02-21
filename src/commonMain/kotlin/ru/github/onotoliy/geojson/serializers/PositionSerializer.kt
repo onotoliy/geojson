@@ -1,9 +1,12 @@
 package ru.github.onotoliy.geojson.serializers
 
-import kotlinx.serialization.*
-import ru.github.onotoliy.geojson.Polygon
+import kotlinx.serialization.Decoder
+import kotlinx.serialization.Encoder
+import kotlinx.serialization.decode
+import kotlinx.serialization.encode
+import kotlinx.serialization.list
+import kotlinx.serialization.serializer
 import ru.github.onotoliy.geojson.Position
-import ru.github.onotoliy.geojson.Ring
 
 /**
  * Kotlin сериализация/десериализация [Position].
