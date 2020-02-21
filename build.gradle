@@ -73,6 +73,13 @@ kotlin {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.14.0"
             }
         }
+        jsTest {
+            dependsOn jsMain
+            dependsOn commonTest
+            dependencies {
+                implementation kotlin('test-js')
+            }
+        }
         jvmMain {
             dependsOn commonMain
             dependencies {
@@ -83,11 +90,9 @@ kotlin {
         }
         jvmTest {
             dependsOn jvmMain
+            dependsOn commonTest
             dependencies {
-                implementation kotlin('stdlib-jdk8')
-                implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0'
-                implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
-                implementation 'junit:junit:4.13'
+                implementation kotlin('test-junit')
             }
         }
     }
