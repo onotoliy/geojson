@@ -7,5 +7,4 @@ package ru.github.onotoliy.geojson
  * @author Anatoliy Pokhresnyi
  */
 actual class MultiGeometry actual constructor(actual val coordinates: List<Geometry>) :
-    AbstractGeoJsonCoordinate<Geometry>(coordinates),
-    GeometryCoordinate
+    AbstractGeoJsonCoordinate<Geometry>(coordinates), GeometryCoordinate

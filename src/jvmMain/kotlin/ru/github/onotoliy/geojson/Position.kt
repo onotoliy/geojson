@@ -7,5 +7,5 @@ import ru.github.onotoliy.geojson.serializer.PositionJacksonSerializer
 
 @JsonSerialize(using = PositionJacksonSerializer::class)
 @JsonDeserialize(using = PositionJacksonDeserializer::class)
-actual open class Position actual constructor(actual val x: Double, actual val y: Double) : AbstractPosition(x, y),
-    GeometryCoordinate
+actual open class Position actual constructor(actual val x: Double, actual val y: Double) :
+    AbstractPosition(x, y), GeometryCoordinate

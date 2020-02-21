@@ -6,7 +6,8 @@ package ru.github.onotoliy.geojson
  * @property geometries Список геометрий.
  * @author Anatoliy Pokhresnyi
  */
-actual class GeometryCollection actual constructor(geometries: MultiGeometry) : GeoJsonObject<MultiGeometry>(geometries) {
+actual class GeometryCollection actual constructor(geometries: MultiGeometry) :
+    GeoJsonObject<MultiGeometry>(geometries) {
 
     /**
      * Список геометрий.

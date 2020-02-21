@@ -8,8 +8,6 @@ import kotlin.reflect.KClass
 
 actual fun <T : Any> getSimpleClassName(clazz: KClass<T>): String = clazz.java.name
 
-fun <T> JsonParser?.fromJson(toObject: (String) -> T): T = if (this == null) {
-    throw IllegalArgumentException()
-} else {
-    toObject(codec.readTree<TreeNode>(this).toString())
-}
+fun <T> JsonParser?.fromJson(toObject: (String) -> T): T = this?.let {
+    toObject(codec.readTree<TreeNode>(it).toString())
+} ?: throw IllegalArgumentException()

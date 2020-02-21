@@ -9,6 +9,7 @@ import ru.github.onotoliy.geojson.serializer.GeometryCollectionJacksonSerializer
 @JsonDeserialize(using = GeometryCollectionJacksonDeserializer::class)
 actual class GeometryCollection actual constructor(geometries: MultiGeometry) :
     GeoJsonObject<MultiGeometry>(geometries) {
+
     actual val geometries: MultiGeometry
         get() = value
 }

@@ -8,7 +8,8 @@ package ru.github.onotoliy.geojson
 interface GeoJsonCoordinate
 
 /**
- * Базовый абстрактный класс координат в формате GeoJson. Используется для перереопределения методов [toString], [hashCode], [equals]
+ * Базовый абстрактный класс координат в формате GeoJson.
+ * Используется для перереопределения методов [toString], [hashCode], [equals]
  *
  * @param T Тип координат.
  * @property values Список координат.
