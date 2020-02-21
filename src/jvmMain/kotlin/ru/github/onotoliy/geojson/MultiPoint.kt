@@ -2,9 +2,9 @@ package ru.github.onotoliy.geojson
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import ru.github.onotoliy.geojson.serializer.MultiPointJsonDeserializer
-import ru.github.onotoliy.geojson.serializer.MultiPointJsonSerializer
+import ru.github.onotoliy.geojson.serializer.MultiPointJacksonDeserializer
+import ru.github.onotoliy.geojson.serializer.MultiPointJacksonSerializer
 
-@JsonSerialize(using = MultiPointJsonSerializer::class)
-@JsonDeserialize(using = MultiPointJsonDeserializer::class)
+@JsonSerialize(using = MultiPointJacksonSerializer::class)
+@JsonDeserialize(using = MultiPointJacksonDeserializer::class)
 actual class MultiPoint actual constructor(actual override val coordinates: MultiPosition) : Geometry(coordinates)

@@ -9,7 +9,7 @@ import ru.github.onotoliy.geojson.serializers.*
 import java.io.FileInputStream
 import com.fasterxml.jackson.databind.module.SimpleModule
 import ru.github.onotoliy.geojson.serializer.*
-import ru.github.onotoliy.geojson.serializer.FeatureCollectionJsonSerializer
+import ru.github.onotoliy.geojson.serializer.FeatureCollectionJacksonSerializer
 
 class GeoJsonTest {
 
@@ -35,38 +35,38 @@ class GeoJsonTest {
         val featureCollection = FeatureCollection(MultiFeature(listOf(Feature(Point(Position(102.0, 0.5))), Feature(LineString(MultiPosition(listOf(Position(102.0, 0.0), Position(103.0, 1.0), Position(104.0, 0.0), Position(105.0, 1.0))))), Feature(Polygon(Ring(listOf(MultiPosition(listOf(Position(100.0, 0.0), Position(101.0, 0.0), Position(101.0, 1.0), Position(100.0, 1.0),Position(100.0, 0.0))))))))))
 
         val module = SimpleModule()
-        module.addSerializer(Point::class.java, PointJsonSerializer())
-        module.addSerializer(MultiPoint::class.java, MultiPointJsonSerializer())
-        module.addSerializer(LineString::class.java, LineStringJsonSerializer())
-        module.addSerializer(MultiLineString::class.java, MultiLineStringJsonSerializer())
-        module.addSerializer(Polygon::class.java, PolygonJsonSerializer())
-        module.addSerializer(MultiPolygon::class.java, MultiPolygonJsonSerializer())
-        module.addSerializer(Geometry::class.java, GeometryJsonSerializer())
-        module.addSerializer(GeometryCollection::class.java, GeometryCollectionJsonSerializer())
-        module.addSerializer(Feature::class.java, FeatureJsonSerializer())
-        module.addSerializer(FeatureCollection::class.java, FeatureCollectionJsonSerializer())
+        module.addSerializer(Point::class.java, PointJacksonSerializer())
+        module.addSerializer(MultiPoint::class.java, MultiPointJacksonSerializer())
+        module.addSerializer(LineString::class.java, LineStringJacksonSerializer())
+        module.addSerializer(MultiLineString::class.java, MultiLineStringJacksonSerializer())
+        module.addSerializer(Polygon::class.java, PolygonJacksonSerializer())
+        module.addSerializer(MultiPolygon::class.java, MultiPolygonJacksonSerializer())
+        module.addSerializer(Geometry::class.java, GeometryJacksonSerializer())
+        module.addSerializer(GeometryCollection::class.java, GeometryCollectionJacksonSerializer())
+        module.addSerializer(Feature::class.java, FeatureJacksonSerializer())
+        module.addSerializer(FeatureCollection::class.java, FeatureCollectionJacksonSerializer())
 
-        module.addDeserializer(Point::class.java, PointJsonDeserializer())
+        module.addDeserializer(Point::class.java, PointJacksonDeserializer())
         module.addDeserializer(MultiPoint::class.java,
-            MultiPointJsonDeserializer()
+            MultiPointJacksonDeserializer()
         )
         module.addDeserializer(LineString::class.java,
             LineStringJsonDeserializer()
         )
         module.addDeserializer(MultiLineString::class.java,
-            MultiLineStringJsonDeserializer()
+            MultiLineStringJacksonDeserializer()
         )
-        module.addDeserializer(Polygon::class.java, PolygonJsonDeserializer())
+        module.addDeserializer(Polygon::class.java, PolygonJacksonDeserializer())
         module.addDeserializer(MultiPolygon::class.java,
-            MultiPolygonJsonDeserializer()
+            MultiPolygonJacksonDeserializer()
         )
-        module.addDeserializer(Geometry::class.java, GeometryJsonDeserializer())
+        module.addDeserializer(Geometry::class.java, GeometryJacksonDeserializer())
         module.addDeserializer(GeometryCollection::class.java,
-            GeometryCollectionJsonDeserializer()
+            GeometryCollectionJacksonDeserializer()
         )
-        module.addDeserializer(Feature::class.java, FeatureJsonDeserializer())
+        module.addDeserializer(Feature::class.java, FeatureJacksonDeserializer())
         module.addDeserializer(FeatureCollection::class.java,
-            FeatureCollectionJsonDeserializer()
+            FeatureCollectionJacksonDeserializer()
         )
         mapper.registerModule(module)
 

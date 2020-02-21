@@ -2,9 +2,9 @@ package ru.github.onotoliy.geojson
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import ru.github.onotoliy.geojson.serializer.PolygonJsonDeserializer
-import ru.github.onotoliy.geojson.serializer.PolygonJsonSerializer
+import ru.github.onotoliy.geojson.serializer.PolygonJacksonDeserializer
+import ru.github.onotoliy.geojson.serializer.PolygonJacksonSerializer
 
-@JsonSerialize(using = PolygonJsonSerializer::class)
-@JsonDeserialize(using = PolygonJsonDeserializer::class)
+@JsonSerialize(using = PolygonJacksonSerializer::class)
+@JsonDeserialize(using = PolygonJacksonDeserializer::class)
 actual class Polygon actual constructor(actual override val coordinates: Ring) : Geometry(coordinates)

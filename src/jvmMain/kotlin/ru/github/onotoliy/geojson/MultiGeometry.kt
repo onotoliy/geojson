@@ -2,10 +2,10 @@ package ru.github.onotoliy.geojson
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import ru.github.onotoliy.geojson.serializer.MultiGeometryJsonDeserializer
-import ru.github.onotoliy.geojson.serializer.MultiGeometryJsonSerializer
+import ru.github.onotoliy.geojson.serializer.MultiGeometryJacksonDeserializer
+import ru.github.onotoliy.geojson.serializer.MultiGeometryJacksonSerializer
 
-@JsonSerialize(using = MultiGeometryJsonSerializer::class)
-@JsonDeserialize(using = MultiGeometryJsonDeserializer::class)
+@JsonSerialize(using = MultiGeometryJacksonSerializer::class)
+@JsonDeserialize(using = MultiGeometryJacksonDeserializer::class)
 actual class MultiGeometry actual constructor(actual val coordinates: List<Geometry>) : AbstractGeoJsonCoordinate<Geometry>(coordinates),
     GeometryCoordinate

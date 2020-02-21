@@ -2,10 +2,10 @@ package ru.github.onotoliy.geojson
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import ru.github.onotoliy.geojson.serializer.MultiRingJsonDeserializer
-import ru.github.onotoliy.geojson.serializer.MultiRingJsonSerializer
+import ru.github.onotoliy.geojson.serializer.MultiRingJacksonDeserializer
+import ru.github.onotoliy.geojson.serializer.MultiRingJacksonSerializer
 
-@JsonSerialize(using = MultiRingJsonSerializer::class)
-@JsonDeserialize(using = MultiRingJsonDeserializer::class)
+@JsonSerialize(using = MultiRingJacksonSerializer::class)
+@JsonDeserialize(using = MultiRingJacksonDeserializer::class)
 actual class MultiRing actual constructor(actual val coordinates: List<Ring>) :
     AbstractGeoJsonCoordinate<Ring>(coordinates), GeometryCoordinate
