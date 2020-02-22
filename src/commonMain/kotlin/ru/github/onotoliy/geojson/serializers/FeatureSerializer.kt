@@ -94,7 +94,7 @@ object FeatureSerializer : KSerializer<Feature> {
     }
 
     /**
-     * Десериализация объека [JsonElement].
+     * Десериализация объекта [JsonElement].
      *
      * @param element Json.
      * @return Объект.
@@ -107,7 +107,7 @@ object FeatureSerializer : KSerializer<Feature> {
     }
 
     /**
-     * Десериализация объека [JsonElement].
+     * Десериализация объекта [JsonElement].
      *
      * @param element Json.
      * @return Объект.
@@ -122,7 +122,7 @@ object FeatureSerializer : KSerializer<Feature> {
     }
 
     /**
-     * Десериализация объека [JsonLiteral].
+     * Десериализация объекта [JsonLiteral].
      *
      * @param element Json.
      * @return Объект.
@@ -130,25 +130,43 @@ object FeatureSerializer : KSerializer<Feature> {
     private fun deserialize(element: JsonLiteral): Any = element.body
 
     /**
-     * Десериализация объека [JsonArray].
+     * Десериализация объекта [JsonArray].
      *
      * @param element Json.
      * @return Объект.
      */
     private fun deserialize(element: JsonArray): List<Any> = element.content.map(::deserialize)
 
+    /**
+     * Сериализация в объекта [Any].
+     *
+     * @param obj Объект.
+     * @return Json.
+     */
     @Suppress("UNCHECKED_CAST")
-    private fun serialize(e: Any): JsonElement = when (e) {
-        is Collection<*> -> serialize(e as Collection<Any>)
-        is Map<*, *> -> serialize(e as Map<String, Any>)
-        is Number -> JsonLiteral(e)
-        is Boolean -> JsonLiteral(e)
-        else -> JsonLiteral(e.toString())
+    private fun serialize(obj: Any): JsonElement = when (obj) {
+        is Collection<*> -> serialize(obj as Collection<Any>)
+        is Map<*, *> -> serialize(obj as Map<String, Any>)
+        is Number -> JsonLiteral(obj)
+        is Boolean -> JsonLiteral(obj)
+        else -> JsonLiteral(obj.toString())
     }
 
-    private fun serialize(e: Collection<Any>): JsonElement = JsonArray(e.map(::serialize))
+    /**
+     * Сериализация в объекта [Collection].
+     *
+     * @param obj Объект.
+     * @return Json.
+     */
+    private fun serialize(obj: Collection<Any>): JsonElement = JsonArray(obj.map(::serialize))
 
-    private fun serialize(e: Map<String, Any>): JsonElement = JsonObject(e.entries.associate {
+    /**
+     * Сериализация в объекта [Map].
+     *
+     * @param obj Объект.
+     * @return Json.
+     */
+    private fun serialize(obj: Map<String, Any>): JsonElement = JsonObject(obj.entries.associate {
         it.key to serialize(it.value)
     })
 }
