@@ -93,25 +93,49 @@ object FeatureSerializer : KSerializer<Feature> {
         structure.endStructure(descriptor)
     }
 
-    private fun deserialize(e: JsonElement): Any = when (e) {
-        is JsonLiteral -> deserialize(e)
-        is JsonObject -> deserialize(e)
-        is JsonArray -> deserialize(e)
+    /**
+     * Десериализация объека [JsonElement].
+     *
+     * @param element Json.
+     * @return Объект.
+     */
+    private fun deserialize(element: JsonElement): Any = when (element) {
+        is JsonLiteral -> deserialize(element)
+        is JsonObject -> deserialize(element)
+        is JsonArray -> deserialize(element)
         else -> throw IllegalArgumentException()
     }
 
-    private fun deserialize(e: JsonObject): Map<String, Any> = e.content.entries.associate {
-        it.key to when (val element = it.value) {
-            is JsonLiteral -> deserialize(element)
-            is JsonObject -> deserialize(element)
-            is JsonArray -> deserialize(element)
+    /**
+     * Десериализация объека [JsonElement].
+     *
+     * @param element Json.
+     * @return Объект.
+     */
+    private fun deserialize(element: JsonObject): Map<String, Any> = element.content.entries.associate {
+        it.key to when (val e = it.value) {
+            is JsonLiteral -> deserialize(e)
+            is JsonObject -> deserialize(e)
+            is JsonArray -> deserialize(e)
             else -> throw IllegalArgumentException()
         }
     }
 
-    private fun deserialize(e: JsonLiteral): Any = e.body
+    /**
+     * Десериализация объека [JsonLiteral].
+     *
+     * @param element Json.
+     * @return Объект.
+     */
+    private fun deserialize(element: JsonLiteral): Any = element.body
 
-    private fun deserialize(e: JsonArray): List<Any> = e.content.map(::deserialize)
+    /**
+     * Десериализация объека [JsonArray].
+     *
+     * @param element Json.
+     * @return Объект.
+     */
+    private fun deserialize(element: JsonArray): List<Any> = element.content.map(::deserialize)
 
     @Suppress("UNCHECKED_CAST")
     private fun serialize(e: Any): JsonElement = when (e) {

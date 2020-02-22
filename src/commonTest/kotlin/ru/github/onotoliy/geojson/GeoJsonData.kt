@@ -538,7 +538,7 @@ val FEATURE_FULL_JSON = """
   "bbox": [0.1, 0.2, 0.3, 0.4],
   "properties": {
     "prop0": "value0",
-    "prop2": [1, 2, 3, 4],
+    "prop2": ["1", "2", "3", "4"],
     "prop1": {
       "this": "that"
     }
@@ -548,9 +548,11 @@ val FEATURE_FULL_JSON = """
 val FEATURE_FULL_OBJECT = Feature(
     Point(Position(102.0, 0.5, 100.0)),
     listOf(0.1, 0.2, 0.3, 0.4),
-    mapOf(
+    linkedMapOf(
         "prop0" to "value0",
-        "prop2" to listOf(1, 2, 3, 4),
-        "prop1" to mapOf("this" to "that")))
+        "prop2" to arrayListOf("1", "2", "3", "4"),
+        "prop1" to linkedMapOf("this" to "that")
+    )
+)
 
 fun String.formatted() = Json(JsonConfiguration.Stable).parseJson(this).toString()

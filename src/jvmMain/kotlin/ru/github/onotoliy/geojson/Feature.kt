@@ -13,7 +13,7 @@ import ru.github.onotoliy.geojson.serializer.FeatureJacksonSerializer
  */
 @JsonSerialize(using = FeatureJacksonSerializer::class)
 @JsonDeserialize(using = FeatureJacksonDeserializer::class)
-actual class Feature actual constructor(g: Geometry, private val b: List<Double>, private val p: Map<String, Any>) : GeoJsonObject<Geometry>(g) {
+actual class Feature actual constructor(g: Geometry, b: List<Double>, p: Map<String, Any>) : AbstractFeature(g, b, p) {
 
     /**
      * Геометрия.

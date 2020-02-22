@@ -8,7 +8,7 @@ package ru.github.onotoliy.geojson
  * @property properties Параметры.
  * @author Anatoliy Pokhresnyi
  */
-expect class Feature constructor(g: Geometry, b: List<Double>, p: Map<String, Any>) : GeoJsonObject<Geometry> {
+expect class Feature constructor(g: Geometry, b: List<Double>, p: Map<String, Any>) : AbstractFeature {
 
     /**
      * Геометрия.
@@ -24,4 +24,21 @@ expect class Feature constructor(g: Geometry, b: List<Double>, p: Map<String, An
      * Параметры.
      */
     val properties: Map<String, Any>
+}
+
+/**
+ * Объект Feature.
+ *
+ * @property value Геометрия.
+ * @property b Ограничивающий прямоугольник.
+ * @property p Параметры.
+ * @author Anatoliy Pokhresnyi
+ */
+abstract class AbstractFeature(g: Geometry, protected val b: List<Double>, protected val p: Map<String, Any>) :
+    GeoJsonObject<Geometry>(g) {
+
+    override fun toString(): String = "Feature(t=Feature,g=$value,b=$b, p=$p)"
+    override fun equals(other: Any?): Boolean =
+        super.equals(other) && other is AbstractFeature && p == other.p && b == other.b
+    override fun hashCode(): Int = 31 * (super.hashCode() + b.hashCode() + p.hashCode())
 }
