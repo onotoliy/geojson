@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiPolygon
 
+/**
+ * Jackson сериализация [MultiPolygon].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPolygonJacksonSerializer : JsonSerializer<MultiPolygon>() {
     override fun serialize(value: MultiPolygon, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [MultiPolygon].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPolygonJacksonDeserializer : JsonDeserializer<MultiPolygon>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): MultiPolygon =
         p.fromJson(String::toMultiPolygon)

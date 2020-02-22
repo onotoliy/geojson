@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toRing
 
+/**
+ * Jackson сериализация [Ring].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class RingJacksonSerializer : JsonSerializer<Ring>() {
     override fun serialize(value: Ring, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [Ring].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class RingJacksonDeserializer : JsonDeserializer<Ring>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Ring =
         p.fromJson(String::toRing)

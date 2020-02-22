@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toPosition
 
+/**
+ * Jackson сериализация [Position].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class PositionJacksonSerializer : JsonSerializer<Position>() {
     override fun serialize(value: Position, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [Position].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class PositionJacksonDeserializer : JsonDeserializer<Position>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Position =
         p.fromJson(String::toPosition)

@@ -12,9 +12,17 @@ import ru.github.onotoliy.geojson.MultiPolygon
 import ru.github.onotoliy.geojson.Point
 import ru.github.onotoliy.geojson.Polygon
 
-class GeoJsonModule : SimpleModule {
+/**
+ * Jackson модуль сериализации/десериализации GeoJson.
+ *
+ * @author Anatoliy Pokhresnyi
+ */
+class GeoJsonModule() : SimpleModule() {
 
-    constructor() {
+    /**
+     * Инициализация Jackson модуля.
+     */
+    init {
         addSerializer(Point::class.java, PointJacksonSerializer())
         addSerializer(MultiPoint::class.java, MultiPointJacksonSerializer())
         addSerializer(LineString::class.java, LineStringJacksonSerializer())
@@ -25,7 +33,6 @@ class GeoJsonModule : SimpleModule {
         addSerializer(GeometryCollection::class.java, GeometryCollectionJacksonSerializer())
         addSerializer(Feature::class.java, FeatureJacksonSerializer())
         addSerializer(FeatureCollection::class.java, FeatureCollectionJacksonSerializer())
-
         addDeserializer(Point::class.java, PointJacksonDeserializer())
         addDeserializer(MultiPoint::class.java, MultiPointJacksonDeserializer())
         addDeserializer(LineString::class.java, LineStringJsonDeserializer())

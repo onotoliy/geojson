@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toLineString
 
+/**
+ * Jackson сериализация [LineString].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class LineStringJacksonSerializer : JsonSerializer<LineString>() {
     override fun serialize(value: LineString, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [LineString].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class LineStringJsonDeserializer : JsonDeserializer<LineString>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): LineString =
         p.fromJson(String::toLineString)

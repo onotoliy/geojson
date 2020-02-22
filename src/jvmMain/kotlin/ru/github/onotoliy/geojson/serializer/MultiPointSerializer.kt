@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiPoint
 
+/**
+ * Jackson сериализация [MultiPoint].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPointJacksonSerializer : JsonSerializer<MultiPoint>() {
     override fun serialize(value: MultiPoint, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [MultiPoint].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPointJacksonDeserializer : JsonDeserializer<MultiPoint>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): MultiPoint =
         p.fromJson(String::toMultiPoint)

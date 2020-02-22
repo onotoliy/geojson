@@ -5,6 +5,12 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import ru.github.onotoliy.geojson.serializer.MultiGeometryJacksonDeserializer
 import ru.github.onotoliy.geojson.serializer.MultiGeometryJacksonSerializer
 
+/**
+ * Списк геометрий. Используется для геометрии типа [GeometryCollection].
+ *
+ * @property coordinates Список геометрий.
+ * @author Anatoliy Pokhresnyi
+ */
 @JsonSerialize(using = MultiGeometryJacksonSerializer::class)
 @JsonDeserialize(using = MultiGeometryJacksonDeserializer::class)
 actual class MultiGeometry actual constructor(actual val coordinates: List<Geometry>) :

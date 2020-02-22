@@ -73,13 +73,6 @@ kotlin {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.14.0"
             }
         }
-        jsTest {
-            dependsOn jsMain
-            dependsOn commonTest
-            dependencies {
-                implementation kotlin('test-js')
-            }
-        }
         jvmMain {
             dependsOn commonMain
             dependencies {

@@ -6,20 +6,26 @@ import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonSerializer
 import com.fasterxml.jackson.databind.SerializerProvider
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import ru.github.onotoliy.geojson.Feature
 import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toFeature
 
-@JsonSerialize(`as` = Feature::class)
+/**
+ * Jackson сериализация [Feature].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class FeatureJacksonSerializer : JsonSerializer<Feature>() {
     override fun serialize(value: Feature, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
-@JsonDeserialize(`as` = Feature::class)
+/**
+ * Jackson десериализация [Feature].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class FeatureJacksonDeserializer : JsonDeserializer<Feature>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Feature =
         p.fromJson(String::toFeature)

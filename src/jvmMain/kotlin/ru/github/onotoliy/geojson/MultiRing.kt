@@ -5,6 +5,12 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import ru.github.onotoliy.geojson.serializer.MultiRingJacksonDeserializer
 import ru.github.onotoliy.geojson.serializer.MultiRingJacksonSerializer
 
+/**
+ * Список координат. Используется для геометрии типа [MultiPolygon].
+ *
+ * @property coordinates Координаты.
+ * @author Anatoliy Pokhresnyi
+ */
 @JsonSerialize(using = MultiRingJacksonSerializer::class)
 @JsonDeserialize(using = MultiRingJacksonDeserializer::class)
 actual class MultiRing actual constructor(actual val coordinates: List<Ring>) :

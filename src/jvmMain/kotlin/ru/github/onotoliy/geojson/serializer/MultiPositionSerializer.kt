@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiPosition
 
+/**
+ * Jackson сериализация [MultiPosition].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPositionJacksonSerializer : JsonSerializer<MultiPosition>() {
     override fun serialize(value: MultiPosition, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [MultiPosition].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiPositionJacksonDeserializer : JsonDeserializer<MultiPosition>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): MultiPosition =
         p.fromJson(String::toMultiPosition)

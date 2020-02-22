@@ -5,9 +5,19 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import ru.github.onotoliy.geojson.serializer.FeatureCollectionJacksonDeserializer
 import ru.github.onotoliy.geojson.serializer.FeatureCollectionJacksonSerializer
 
+/**
+ * Объект FeatureCollection.
+ *
+ * @property features Список объектов Features.
+ * @author Anatoliy Pokhresnyi
+ */
 @JsonSerialize(using = FeatureCollectionJacksonSerializer::class)
 @JsonDeserialize(using = FeatureCollectionJacksonDeserializer::class)
 actual class FeatureCollection actual constructor(features: MultiFeature) : GeoJsonObject<MultiFeature>(features) {
+
+    /**
+     * Список объектов Features.
+     */
     actual val features: MultiFeature
         get() = value
 }

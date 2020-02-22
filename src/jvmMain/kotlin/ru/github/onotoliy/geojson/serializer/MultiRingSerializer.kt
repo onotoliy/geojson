@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toMultiRing
 
+/**
+ * Jackson сериализация [MultiRing].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiRingJacksonSerializer : JsonSerializer<MultiRing>() {
     override fun serialize(value: MultiRing, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [MultiRing].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class MultiRingJacksonDeserializer : JsonDeserializer<MultiRing>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): MultiRing =
         p.fromJson(String::toMultiRing)

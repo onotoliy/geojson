@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toPolygon
 
+/**
+ * Jackson сериализация [Polygon].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class PolygonJacksonSerializer : JsonSerializer<Polygon>() {
     override fun serialize(value: Polygon, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [Polygon].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class PolygonJacksonDeserializer : JsonDeserializer<Polygon>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): Polygon =
         p.fromJson(String::toPolygon)

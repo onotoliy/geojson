@@ -11,11 +11,21 @@ import ru.github.onotoliy.geojson.fromJson
 import ru.github.onotoliy.geojson.serializers.stringify
 import ru.github.onotoliy.geojson.serializers.toGeometryCollection
 
+/**
+ * Jackson сериализация [GeometryCollection].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class GeometryCollectionJacksonSerializer : JsonSerializer<GeometryCollection>() {
     override fun serialize(value: GeometryCollection, gen: JsonGenerator?, serializers: SerializerProvider?) =
         if (gen == null) throw IllegalArgumentException() else gen.writeRaw(value.stringify())
 }
 
+/**
+ * Jackson десериализация [GeometryCollection].
+ *
+ * @author Anatoliy Pokhresnyi
+ */
 class GeometryCollectionJacksonDeserializer : JsonDeserializer<GeometryCollection>() {
     override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): GeometryCollection =
         p.fromJson(String::toGeometryCollection)
