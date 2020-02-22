@@ -8,11 +8,28 @@ import ru.github.onotoliy.geojson.serializer.PositionJacksonSerializer
 /**
  * Координаты одной точки. Используется для геометрии типа [Point].
  *
- * @property x Широта.
- * @property y Долгота.
+ * @property x Долгота (Ось X).
+ * @property y Широта (Ось Y).
+ * @property z Высота (Ось Z).
  * @author Anatoliy Pokhresnyi
  */
 @JsonSerialize(using = PositionJacksonSerializer::class)
 @JsonDeserialize(using = PositionJacksonDeserializer::class)
-actual open class Position actual constructor(actual val x: Double, actual val y: Double) :
-    AbstractPosition(x, y), GeometryCoordinate
+actual class Position actual constructor(x: Double, y: Double, z: Double?) : AbstractPosition(x, y, z),
+    GeometryCoordinate {
+    /**
+     * Широта (Ось Y).
+     */
+    actual val latitude: Double
+        get() = y
+    /**
+     * Долгота (Ось X).
+     */
+    actual val longitude: Double
+        get() = x
+    /**
+     * Высота (Ось Z).
+     */
+    actual val altitude: Double?
+        get() = z
+}

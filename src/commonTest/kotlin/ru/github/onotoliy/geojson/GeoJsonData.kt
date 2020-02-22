@@ -50,7 +50,9 @@ val FEATURE_OBJECT = Feature(
                 )
             )
         )
-    )
+    ),
+    listOf(),
+    mapOf()
 )
 
 val FEATURE_COLLECTION_JSON = """
@@ -127,7 +129,7 @@ val FEATURE_COLLECTION_JSON = """
 val FEATURE_COLLECTION_OBJECT = FeatureCollection(
     MultiFeature(
         listOf(
-            Feature(Point(Position(102.0, 0.5))),
+            Feature(Point(Position(102.0, 0.5)), listOf(), mapOf()),
             Feature(
                 LineString(
                     MultiPosition(
@@ -138,7 +140,9 @@ val FEATURE_COLLECTION_OBJECT = FeatureCollection(
                             Position(105.0, 1.0)
                         )
                     )
-                )
+                ),
+                listOf(),
+                mapOf()
             ),
             Feature(
                 Polygon(
@@ -155,7 +159,9 @@ val FEATURE_COLLECTION_OBJECT = FeatureCollection(
                             )
                         )
                     )
-                )
+                ),
+                listOf(),
+                mapOf()
             )
         )
     )
@@ -517,5 +523,34 @@ val POLYGON_WITH_HOLES_OBJECT = Polygon(
         )
     )
 )
+
+val FEATURE_FULL_JSON = """
+{
+  "type": "Feature",
+  "geometry": {
+  "type": "Point",
+    "coordinates": [
+      102.0,
+      0.5,
+      100.0
+    ]
+  },
+  "bbox": [0.1, 0.2, 0.3, 0.4],
+  "properties": {
+    "prop0": "value0",
+    "prop2": [1, 2, 3, 4],
+    "prop1": {
+      "this": "that"
+    }
+  }
+}
+""".formatted()
+val FEATURE_FULL_OBJECT = Feature(
+    Point(Position(102.0, 0.5, 100.0)),
+    listOf(0.1, 0.2, 0.3, 0.4),
+    mapOf(
+        "prop0" to "value0",
+        "prop2" to listOf(1, 2, 3, 4),
+        "prop1" to mapOf("this" to "that")))
 
 fun String.formatted() = Json(JsonConfiguration.Stable).parseJson(this).toString()

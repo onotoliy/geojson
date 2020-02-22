@@ -24,8 +24,9 @@ object PositionSerializer : GeoJsonCoordinateSerializer<Position>(
  * @return Объект [Position].
  * @author Anatoliy Pokhresnyi
  */
-private fun decode(decoder: Decoder) =
-    decoder.decode(Double.serializer().list).let { Position(it[0], it[1]) }
+private fun decode(decoder: Decoder) = decoder.decode(Double.serializer().list).let {
+    Position(it[0], it[1], if (it.size > 2) it[2] else null)
+}
 
 /**
  * Сериялизация объекта [Position].
@@ -34,5 +35,10 @@ private fun decode(decoder: Decoder) =
  * @param encoder JSON объект.
  * @author Anatoliy Pokhresnyi
  */
-private fun encode(obj: Position, encoder: Encoder) =
-    encoder.encode(Double.serializer().list, listOf(obj.x, obj.y))
+private fun encode(obj: Position, encoder: Encoder) {
+    val coordinates: MutableList<Double> = mutableListOf(obj.longitude, obj.latitude)
+
+    obj.altitude?.let(coordinates::add)
+
+    encoder.encode(Double.serializer().list, coordinates)
+}
